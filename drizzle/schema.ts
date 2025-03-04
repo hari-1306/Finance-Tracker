@@ -14,7 +14,7 @@ import {
   export const incomeTypeEnum = ["standard", "irregular"];
   export const expenseTypeEnum = ["normal", "recurring"];
   
-  export const users = pgTable("user", {
+  export const user = pgTable("user", {
     id: text("id").primaryKey(),
     name: text("name").notNull(),
     email: text("email").notNull().unique(),
@@ -32,7 +32,7 @@ import {
     userAgent: text("user_agent"),
     userId: text("user_id")
       .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
+      .references(() => user.id, { onDelete: "cascade" }),
   });
   
   export const account = pgTable("account", {
@@ -41,7 +41,7 @@ import {
     providerId: text("provider_id").notNull(),
     userId: text("user_id")
       .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
+      .references(() => user.id, { onDelete: "cascade" }),
     accessToken: text("access_token"),
     refreshToken: text("refresh_token"),
     idToken: text("id_token"),
@@ -68,7 +68,7 @@ import {
       id: serial("id").primaryKey(),
       userId: integer("user_id")
         .notNull()
-        .references(() => users.id),
+        .references(() => user.id),
       categoryId: integer("category_id")
         .notNull()
         .references(() => expenseCategories.id),
@@ -94,7 +94,7 @@ import {
       id: serial("id").primaryKey(),
       userId: integer("user_id")
         .notNull()
-        .references(() => users.id),
+        .references(() => user.id),
       categoryId: integer("category_id")
         .notNull()
         .references(() => incomeCategories.id),
@@ -120,7 +120,7 @@ import {
       id: serial("id").primaryKey(),
       userId: integer("user_id")
         .notNull()
-        .references(() => users.id),
+        .references(() => user.id),
       categoryId: integer("category_id")
         .notNull()
         .references(() => expenseCategories.id),
@@ -157,9 +157,9 @@ import {
   });
 
   export const expensesRelations = relations(expenses, ({ one }) => ({
-    user: one(users, {
+    user: one(user, {
       fields: [expenses.userId],
-      references: [users.id],
+      references: [user.id],
     }),
     category: one(expenseCategories, {
       fields: [expenses.categoryId],
@@ -168,9 +168,9 @@ import {
   }));
 
   export const incomesRelations = relations(incomes, ({ one }) => ({
-    user: one(users, {
+    user: one(user, {
       fields: [incomes.userId],
-      references: [users.id],
+      references: [user.id],
     }),
     category: one(incomeCategories, {
       fields: [incomes.categoryId],
@@ -179,9 +179,9 @@ import {
   }));
 
   export const budgetsRelations = relations(budgets, ({ one }) => ({
-    user: one(users, {
+    user: one(user, {
       fields: [budgets.userId],
-      references: [users.id],
+      references: [user.id],
     }),
     category: one(expenseCategories, {
       fields: [budgets.categoryId],
@@ -189,7 +189,7 @@ import {
     }),
   }));
   
-  export const usersRelations = relations(users, ({ many }) => ({
+  export const userRelations = relations(user, ({ many }) => ({
     expenses: many(expenses),
     incomes: many(incomes),
     budgets: many(budgets),

@@ -7,15 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DollarSign,
-  TrendingDown,
-  TrendingUp,
-  PiggyBank,
-} from "lucide-react";
+import { DollarSign, TrendingDown, TrendingUp, PiggyBank } from "lucide-react";
 import ChartInOverview from "./ChartInOverview";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-function Overview() {
+async function Overview() {
   const data = [
     {
       name: "Jan",

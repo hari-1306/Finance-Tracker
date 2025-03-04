@@ -9,14 +9,14 @@ import {
 } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import AddedBudget from "./Added-Budgets";
+import AddBudget from "./Add-Budgets";
 
 function Budgets() {
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">Budgets</h2>
-        <AddedBudget />
+        <AddBudget />
       </div>
 
       <div className="grid grid-cols-2 gap-4 py-2">

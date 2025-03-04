@@ -14,17 +14,17 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from ".
 import { Input } from "./ui/input";
 import { DatePickerWithRange } from "./Date-picker";
 
-export default function AddedIncome() {
+export default function AddExpense() {
     return (
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline">Add Income</Button>
+            <Button variant="outline">Add Expense</Button>
           </SheetTrigger>
           <SheetContent className="sm:max-w-md">
             <SheetHeader>
-              <SheetTitle>Add New Income</SheetTitle>
+              <SheetTitle>Add New Expense</SheetTitle>
               <SheetDescription>
-                Record a new source of Income.
+                Record a new expense transaction.
               </SheetDescription>
             </SheetHeader>
             <form className="grid gap-4 py-4">
@@ -60,7 +60,7 @@ export default function AddedIncome() {
                 />
               </div>
               <Button type="submit">
-                Add Income
+                Add Expense
               </Button>
             </form>
           </SheetContent>

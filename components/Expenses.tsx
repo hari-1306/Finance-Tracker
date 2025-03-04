@@ -17,14 +17,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Component from "./Category-chart";
-import AddedExpense from "./Added-Expense";
+import AddExpense from "./Add-Expense";
 
 function Expenses() {
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">Expenses</h2>
-        <AddedExpense />
+        <AddExpense />
       </div>
       <div className="flex justify-between py-2 gap-2">
         <Input type="text" placeholder="Search expenses" />

@@ -17,7 +17,7 @@ import {
   CardFooter,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import AddedIncome from "./Added-Income";
+import AddedIncome from "./Add-Income";
 
 function Income() {
   return (

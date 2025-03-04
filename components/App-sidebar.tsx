@@ -10,6 +10,7 @@ import {
   CircleUserRound,
   LogOut,
 } from "lucide-react";
+import SignOut from "./Sign-Out";
 
 import {
   Sidebar,
@@ -31,6 +32,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { ModeToggle } from "./Theme-toggle";
+import { authClient } from "@/lib/auth-client";
 
 // const header = [
 //   {
@@ -158,12 +160,7 @@ export function AppSidebar({
                       Account
                     </span>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <span className="flex gap-2">
-                      <LogOut />
-                      Sign out
-                    </span>
-                  </DropdownMenuItem>
+                  <SignOut />
                 </DropdownMenuContent>
               </DropdownMenu>
             </SidebarMenuItem>
